@@ -20,8 +20,8 @@ async function checkUser(phoneNumber) {
     const client = new MongoClient(MONGO_URI, { useUnifiedTopology: true });
     try {
         await client.connect();
-        const db = client.db(DATABASE_NAME);
-        const collection = db.collection(COLLECTION_NAME);
+        const db = client.db(theaterBooking);
+        const collection = db.collection(users);
 
         const user = await collection.findOne({ phoneNumber: phoneNumber });
         return user;
